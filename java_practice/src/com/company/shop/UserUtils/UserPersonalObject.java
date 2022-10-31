@@ -11,7 +11,7 @@ public class UserPersonalObject {
         this.objectValue = objectValue;
     }
 
-       public String getObjectName() {
+    public String getObjectName() {
         return objectName;
     }
 

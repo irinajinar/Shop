@@ -7,6 +7,8 @@ import com.company.shop.ShopObject.Car;
 import com.company.shop.ShopObject.Chair;
 import com.company.shop.ShopObject.Computer;
 import com.company.shop.UserUtils.UserPersonalObject;
+import com.company.shop.UserUtils.UserPersonalTransaction;
+import com.company.shop.UserUtils.UserShoppingList;
 import com.company.shop.werehouse.Deposit;
 import com.company.shop.werehouse.DepositProduct;
 import com.company.shop.werehouse.DepositsUtil;
@@ -22,7 +24,7 @@ public class Main {
         ArrayList<ArrayList<DepositProduct>> depositProducts = new ArrayList<ArrayList<DepositProduct>>();
         ArrayList<DepositProduct> electronicsCategory = new ArrayList<DepositProduct>();
         ArrayList<DepositProduct> autovehicleCategory = new ArrayList<DepositProduct>();
-        ArrayList<DepositProduct> furnitureCategory= new ArrayList<DepositProduct>();
+        ArrayList<DepositProduct> furnitureCategory = new ArrayList<DepositProduct>();
 
         DepositProduct electronic = new DepositProduct("Electronic Products", 0);
         DepositProduct autovehicle = new DepositProduct("Autovehicle", 0);
@@ -38,13 +40,11 @@ public class Main {
 
         Computer computer = new Computer("Dell computer", electronic.getPcs(), electronic.getCategory(), 300, "9 RAM");
         Computer computer1 = new Computer("Lenovo computer", electronic.getPrice(), electronic.getCategory(), 300, "6 RAM");
-        Car car = new Car(autovehicleCategory, autovehicle.getPcs(),autovehicle.getPrice(), 6, "black", 180, "Mercedes" );
+        Car car = new Car(autovehicleCategory, autovehicle.getPcs(), autovehicle.getPrice(), 6, "black", 180, "Mercedes");
         Chair chair = new Chair(furnitureCategory, "Living Chair", 100, 4, "white", true);
-
 
         Shop shopI = new Shop();
         Deposit depositI = new Deposit();
-
 
         System.out.println("----------------WereHouse Metods--------------------------------");
         System.out.println(Electronics.addElectronicalProduct(electronicsCategory, computer));
@@ -57,29 +57,26 @@ public class Main {
         System.out.println(Furniture.addFurnitureProduct(furnitureCategory, chair));
         System.out.println(DepositsUtil.addObjectCategory(depositProducts, furnitureCategory));
 
-
-        ArrayList<UserPersonalObject> firstUserPersonalObject = new ArrayList<UserPersonalObject>();
-        ArrayList<UserPersonalObject> secondUserPersonalObject = new ArrayList<UserPersonalObject>();
-
-
         System.out.println("----------------Shop Metods--------------------------------");
 
         System.out.println(shopI.addObjects(depositProducts));
         System.out.println(shopI.removeObjects(computer1));
 
-//        UserShoppingList.shopping(firstUser, chair, shopI.objectsToBuy);
+        UserShoppingList.shopping(firstUser, electronicsCategory, computer1, shopI.objectsAvailableInShop);
 
-////
-//        System.out.println(UserPersonalTransaction.checkObjectValue(firstUser, object1, firstUserPersonalObject));
-//        System.out.println(UserPersonalTransaction.addPersonalObject(object1, firstUserPersonalObject));
-//        System.out.println(UserPersonalTransaction.addPersonalObject(object3, firstUserPersonalObject));
-//        System.out.println(UserPersonalTransaction.addPersonalObject(object2, secondUserPersonalObject));
-//        System.out.println(UserPersonalTransaction.addPersonalObject(object4, secondUserPersonalObject));
-//
-//        System.out.println("------User Metods------------------------------------------");
-//        System.out.println(UserPersonalTransaction.checkObjectValue(secondUser, object1, secondUserPersonalObject));
-//
-//        System.out.println(UserPersonalTransaction.sellPersonalObject(firstUserPersonalObject, secondUserPersonalObject, object1, firstUser, secondUser));
+        System.out.println("------User Metods------------------------------------------");
+
+        ArrayList<UserPersonalObject> firstUserPersonalObject = new ArrayList<UserPersonalObject>();
+        ArrayList<UserPersonalObject> secondUserPersonalObject = new ArrayList<UserPersonalObject>();
+
+        System.out.println(UserPersonalTransaction.checkObjectValue(firstUser, object1, firstUserPersonalObject));
+        System.out.println(UserPersonalTransaction.addPersonalObject(object1, firstUserPersonalObject));
+        System.out.println(UserPersonalTransaction.addPersonalObject(object3, firstUserPersonalObject));
+        System.out.println(UserPersonalTransaction.addPersonalObject(object2, secondUserPersonalObject));
+        System.out.println(UserPersonalTransaction.addPersonalObject(object4, secondUserPersonalObject));
+        System.out.println(UserPersonalTransaction.checkObjectValue(secondUser, object1, secondUserPersonalObject));
+
+        System.out.println(UserPersonalTransaction.sellPersonalObject(firstUserPersonalObject, secondUserPersonalObject, object1, firstUser, secondUser));
 
     }
 }

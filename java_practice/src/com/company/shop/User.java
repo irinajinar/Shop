@@ -5,14 +5,12 @@ public class User {
     private String secondName;
     private double salary;
     private String password;
-//    private UserPersonalObject personalObject;
 
     public User(String firstName, String secondName, double salary, String password) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.salary = salary;
         this.password = password;
-//        this.personalObject = personalObject;
     }
 
     public String getFirstName() {
@@ -57,7 +55,5 @@ public class User {
                 ", password='" + password + '\'' +
                 '}';
     }
-
-
 
 }
