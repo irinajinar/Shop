@@ -1,25 +1,55 @@
 package com.company.shop.ShopObject;
 
-import com.company.shop.DepositCategory.Autovehicle;
-import com.company.shop.werehouse.DepositProduct;
+import com.company.shop.ObjectToBuy;
 
-import java.util.ArrayList;
-
-public class Car extends Autovehicle {
+public class Car extends ObjectToBuy {
+    private String brandOfTheCar;
     private String carColor;
     private double maxSpeed;
-    private String brandOfTheCar;
 
+    public Car(String objectName, double price, String brandOfTheCar, String carColor, double maxSpeed) {
+        super(objectName, price);
+        this.brandOfTheCar = brandOfTheCar;
+        this.carColor = carColor;
+        this.maxSpeed = maxSpeed;
+    }
 
-    public Car(ArrayList<DepositProduct> autovehicleCategory, int pcs, double price, int pcs1, String black, int maxSpeed, String mercedes) {
+    public Car(String brandOfTheCar, String carColor, double maxSpeed) {
+        this.brandOfTheCar = brandOfTheCar;
+        this.carColor = carColor;
+        this.maxSpeed = maxSpeed;
+    }
+
+    public String getBrandOfTheCar() {
+        return brandOfTheCar;
+    }
+
+    public void setBrandOfTheCar(String brandOfTheCar) {
+        this.brandOfTheCar = brandOfTheCar;
+    }
+
+    public String getCarColor() {
+        return carColor;
+    }
+
+    public void setCarColor(String carColor) {
+        this.carColor = carColor;
+    }
+
+    public double getMaxSpeed() {
+        return maxSpeed;
+    }
+
+    public void setMaxSpeed(double maxSpeed) {
+        this.maxSpeed = maxSpeed;
     }
 
     @Override
     public String toString() {
         return "Car{" +
-                "carColor='" + carColor + '\'' +
+                "brandOfTheCar='" + brandOfTheCar + '\'' +
+                ", carColor='" + carColor + '\'' +
                 ", maxSpeed=" + maxSpeed +
-                ", brandOfTheCar='" + brandOfTheCar + '\'' +
                 '}';
     }
 }

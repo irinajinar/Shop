@@ -1,25 +1,34 @@
 package com.company.shop.ShopObject;
 
-import com.company.shop.DepositCategory.Electronics;
-import com.company.shop.werehouse.DepositProduct;
+import com.company.shop.ObjectToBuy;
 
-import java.util.ArrayList;
+public class Computer extends ObjectToBuy {
 
-public class Computer extends Electronics {
+        private String memory;
 
-    private String description;
-
-    public Computer(String objectName, double price, String category, int pcs, String description) {
-        super(objectName, price, category, pcs);
-        this.description = description;
-
+    public Computer(String objectName, double price, String memory) {
+        super(objectName, price);
+        this.memory = memory;
     }
 
+    public Computer(String memory) {
+        super();
+        this.memory = memory;
+    }
+
+    public String getMemory() {
+        return memory;
+    }
+
+    public void setMemory(String memory) {
+        this.memory = memory;
+    }
 
     @Override
     public String toString() {
         return "Computer{" +
-                "description='" + description + '\'' +
+                "memory='" + memory + '\'' +
                 '}';
     }
 }
+
