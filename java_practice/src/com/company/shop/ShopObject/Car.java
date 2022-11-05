@@ -1,31 +1,31 @@
 package com.company.shop.ShopObject;
 
-import com.company.shop.DepositCategory.Autovehicle;
-import com.company.shop.werehouse.DepositProduct;
+import com.company.shop.ObjectToBuy;
 
-import java.util.ArrayList;
-
-public class Car extends Autovehicle {
+public class Car extends ObjectToBuy {
+    private String brandOfTheCar;
     private String carColor;
     private double maxSpeed;
-    private String brandOfTheCar;
 
-    public Car(String objectName, double price, String category, int pcs, String carColor, double maxSpeed, String brandOfTheCar) {
-        super(objectName, price, category, pcs);
+    public Car(String objectName, double price, String brandOfTheCar, String carColor, double maxSpeed) {
+        super(objectName, price);
+        this.brandOfTheCar = brandOfTheCar;
         this.carColor = carColor;
         this.maxSpeed = maxSpeed;
-        this.brandOfTheCar = brandOfTheCar;
     }
 
-    public Car(String category, int pcs, String carColor, double maxSpeed, String brandOfTheCar) {
-        super(category, pcs);
+    public Car(String brandOfTheCar, String carColor, double maxSpeed) {
+        this.brandOfTheCar = brandOfTheCar;
         this.carColor = carColor;
         this.maxSpeed = maxSpeed;
-        this.brandOfTheCar = brandOfTheCar;
     }
 
+    public String getBrandOfTheCar() {
+        return brandOfTheCar;
+    }
 
-    public Car(ArrayList<DepositProduct> autovehicleCategory, int pcs, double price, int pcs1, String black, int maxSpeed, String mercedes) {
+    public void setBrandOfTheCar(String brandOfTheCar) {
+        this.brandOfTheCar = brandOfTheCar;
     }
 
     public String getCarColor() {
@@ -44,20 +44,12 @@ public class Car extends Autovehicle {
         this.maxSpeed = maxSpeed;
     }
 
-    public String getBrandOfTheCar() {
-        return brandOfTheCar;
-    }
-
-    public void setBrandOfTheCar(String brandOfTheCar) {
-        this.brandOfTheCar = brandOfTheCar;
-    }
-
     @Override
     public String toString() {
         return "Car{" +
-                "carColor='" + carColor + '\'' +
+                "brandOfTheCar='" + brandOfTheCar + '\'' +
+                ", carColor='" + carColor + '\'' +
                 ", maxSpeed=" + maxSpeed +
-                ", brandOfTheCar='" + brandOfTheCar + '\'' +
                 '}';
     }
 }

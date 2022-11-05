@@ -1,24 +1,29 @@
 package com.company.shop;
 
 public class ObjectToBuy {
-    private String objectName;
+    private String name;
     private double price;
+    private String description;
+
+    public ObjectToBuy(String name, double price, String description) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+    }
 
     public ObjectToBuy(String objectName, double price) {
-        this.objectName = objectName;
-        this.price = price;
     }
 
     public ObjectToBuy() {
 
     }
 
-    public String getObjectName() {
-        return objectName;
+    public String getName() {
+        return name;
     }
 
-    public void setObjectName(String objectName) {
-        this.objectName = objectName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getPrice() {
@@ -27,5 +32,22 @@ public class ObjectToBuy {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "ObjectToBuy{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
